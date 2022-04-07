@@ -1,0 +1,28 @@
+
+.text{
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 50px;
+
+}
+
+.xd{
+  height: 100vh;
+  background-color: antiquewhite;
+  display: flex;
+}
+
+.picture{
+
+  height: 300px;
+  width: 400px;
+}
+
+.container {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+  display: flex;
+
+}
