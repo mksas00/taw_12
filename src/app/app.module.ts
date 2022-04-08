@@ -9,13 +9,19 @@ import { BlogItemTextComponent } from './components/blog-item-text/blog-item-tex
 import { BlogItemImageComponent } from './components/blog-item-image/blog-item-image.component';
 import { BlogItemDetailsComponent } from './components/blog-item-details/blog-item-details.component';
 import {DataService} from "./services/data.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { SummaryPipe } from './pipes/summary.pipe';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 import { BlogHomeComponent } from './components/blog-home/blog-home.component';
 import { FilterTextPipe } from './pipes/filter-text.pipe';
 import {FormsModule} from "@angular/forms";
 import { TextFormatDirective } from './directives/text-format.directive';
+import { HomeComponent } from './components/home/home.component';
+import {AuthService} from "./services/auth.service";
+import {AuthInterceptor} from "./services/auth.interceptor";
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,11 @@ import { TextFormatDirective } from './directives/text-format.directive';
     SearchBarComponent,
     BlogHomeComponent,
     FilterTextPipe,
-    TextFormatDirective
+    TextFormatDirective,
+    HomeComponent,
+    LoginComponent,
+    SignupComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +48,13 @@ import { TextFormatDirective } from './directives/text-format.directive';
     FormsModule
   ],
   providers: [
-    DataService
+    DataService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })
