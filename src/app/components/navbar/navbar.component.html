@@ -10,11 +10,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/']">Home</a>
         </li>
-        <li *ngIf="authService.isLoggedIn()" class="nav-item">
-          <a class="nav-link" href="#" [routerLink]="['/blog']">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add post</a>
+        <li *ngIf="authService.isLoggedIn()" class="nav-item" id="routes-to-show">
+          <a class="nav-link" href="#" [routerLink]="['/blog']">Blogs</a>
+          <a class="nav-link" href="#" [routerLink]="['/add-post']">Add Posts</a>
         </li>
       </ul>
       <div class="d-flex">

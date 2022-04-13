@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class DataService {
 
-  private url: string = 'https://taw-posts.herokuapp.com';
+  private url: string = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,10 @@ export class DataService {
 
   getById(id: string) {
     return this.http.get(this.url + '/api/posts/' + id);
+  }
+
+  postBlogPost(post:Object){
+    return this.http.post(this.url + '/api/posts', post);
   }
 
 }

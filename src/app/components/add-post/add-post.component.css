@@ -1,1 +1,19 @@
 .form-control{}
+
+
+.main-container{
+
+  flex: 1;
+  padding: 100px;
+  padding-left: 300px !important;
+  padding-right: 300px !important;
+
+}
+
+#add-post-button{
+  margin-top: 50px;
+}
+
+#imageInput{
+  margin-bottom: 20px;
+}
